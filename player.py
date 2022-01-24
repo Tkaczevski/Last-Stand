@@ -14,11 +14,12 @@ def angle(base, pt):
     return -m.degrees(arg)
 
 def rad_dist(ang1, ang2):
+    angel=180
     dist = ang2 - ang1
-    if dist > 180:
-        dist = dist - 360
-    elif dist < -180:
-        dist = 360 + dist
+    if dist > angel:
+        dist = dist - (angel*2)
+    elif dist < -angel:
+        dist = (angel*2) + dist
     return dist
 
 def norm_angle(ang):
@@ -35,7 +36,7 @@ class Player:
 
     def __init__(self, gdata):
         self.gdata = gdata
-        self.avel = 5
+        self.avel = 50
         self.reload_time = 1000
         self.health = 100
         self.max_health = 100
@@ -66,7 +67,7 @@ class Player:
         self.rotate2mouse()
         if self.reload_timer > 0:
             self.reload_timer -= dt
-            self.redraw(self.reload_timer/self.reload_time)
+            self.redraw(float(self.reload_timer)/float(self.reload_time))
         elif self.fire:
             self.on_fire()
 
@@ -233,7 +234,7 @@ class EnemyGenerator:
     def __init__(self, gdata):
         rnd.seed()
         self.gdata = gdata
-        self.timer = 2000
+        self.timer = 1900
         self.spawn_count = 0
         self.spawn_limit = 10
         self.acc = 0

@@ -7,7 +7,7 @@ class GameOverState:
     def __init__(self, gdata):
         self.gdata = gdata
         height = 220
-        top = settings.WIN_CENTER[1] - height // 2
+        top = settings.WIN_CENTER[1] - float(height) // 2
         rect = pg.Rect(-10, top - 160, settings.WIN_SIZE[0] + 20, height)
 
         btn_size = 80, 50
@@ -16,9 +16,12 @@ class GameOverState:
         
         self.ok_btn = ui.Button((btn_left, btn_top), btn_size, self.on_ok, "Ok",\
             self.gdata.fonts["Large"])
-
-        self.text = self.gdata.fonts["Large"].render("Game Over, You Lasted " +\
-            str(self.gdata.time // 1000) + " Seconds", True, settings.WHITE)
+        if int(self.gdata.time // 1000) < 100:
+            self.text = self.gdata.fonts["Large"].render(f"sorry, You only Lasted {self.gdata.time // 1000} Seconds," 
+                                                     f"try again", True, settings.WHITE)
+        else:
+            self.text = self.gdata.fonts["Large"].render(f"wow, You Lasted for {self.gdata.time // 1000} Seconds,"
+                                                         f"you should join E game teams", True, settings.WHITE)
         text_left = (settings.WIN_SIZE[0] - self.text.get_width()) // 2
         text_top = rect.height // 4 - self.text.get_height() // 2 + rect.top
         self.text_tl = text_left, text_top

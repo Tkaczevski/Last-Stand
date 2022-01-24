@@ -11,12 +11,12 @@ class MenuState:
         self.gdata = gdata
         self.btn_size = 200, 75
         self.vgap = 20
-        self.nbtn_top = settings.WIN_SIZE[1] // 2
+        self.nbtn_top = int(float(settings.WIN_SIZE[1]) / float(2))
         self.start_btn = self.btn("Start", self.on_start)
         self.score_btn = self.btn("Scores", self.on_score)
 
     def btn(self, text, on_click):
-        topleft = (settings.WIN_SIZE[0] - self.btn_size[0]) // 2, self.nbtn_top
+        topleft = int(float(settings.WIN_SIZE[0] - self.btn_size[0]) / float(2)), self.nbtn_top
         self.nbtn_top += self.btn_size[1] + self.vgap
         return ui.Button(topleft, self.btn_size, on_click, text, \
             self.gdata.fonts["Large"])

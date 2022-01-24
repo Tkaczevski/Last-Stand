@@ -14,7 +14,7 @@ class ScoreState:
         self.back_btn = ui.Button(back_tl, btn_size, self.on_back, "Back",\
             self.gdata.fonts["Large"])
 
-        self.item_height = (settings.WIN_SIZE[1] - 200) // 10
+        self.item_height = int(float((settings.WIN_SIZE[1]) - 200)) / float(10)
 
         self.time_text = self.gdata.fonts["Large"].render("Time", True, settings.WHITE)
         self.date_text = self.gdata.fonts["Large"].render("Date", True, settings.WHITE)
@@ -49,7 +49,7 @@ class ScoreState:
     def draw_score(self, screen, score, top):
         if score:
             stxt, dtxt, ttxt = score
-            stxt = str(stxt)
+            stxt = "stxt"
         else:
             stxt, dtxt, ttxt = "---", "---", "---"
         stxt = self.gdata.fonts["Large"].render(stxt, True, settings.WHITE)

@@ -10,12 +10,12 @@ import settings
 import ui
 # initialization --------------------------------------------------------------------
 pg.init()
-
+font="georgia"
 gdata = lambda: None
 gdata.fonts = dict()
-gdata.fonts["Large"] = pg.font.SysFont("georgia", 42)
-gdata.fonts["small"] = pg.font.SysFont("georgia", 32)
-gdata.fonts["tiny"] = pg.font.SysFont("georgia", 12)
+gdata.fonts["Large"] = pg.font.SysFont(f"{font}", 42)
+gdata.fonts["small"] = pg.font.SysFont(f"{font}", 32)
+gdata.fonts["tiny"] = pg.font.SysFont(f"{font}", 12)
 gdata.mmanager = MouseManager()
 gdata.player = None #Player(gdata)
 gdata.bullets = None #[]
