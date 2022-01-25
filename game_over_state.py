@@ -7,7 +7,7 @@ class GameOverState:
     def __init__(self, gdata):
         self.gdata = gdata
         height = 220
-        top = settings.WIN_CENTER[1] - float(height) // 2
+        top = settings.WIN_CENTER[1] - (height) // 2
         rect = pg.Rect(-10, top - 160, settings.WIN_SIZE[0] + 20, height)
 
         btn_size = 80, 50
