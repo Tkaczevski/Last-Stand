@@ -49,7 +49,7 @@ class ScoreState:
     def draw_score(self, screen, score, top):
         if score:
             stxt, dtxt, ttxt = score
-            stxt = "stxt"
+            stxt = str(stxt)
         else:
             stxt, dtxt, ttxt = "---", "---", "---"
         stxt = self.gdata.fonts["Large"].render(stxt, True, settings.WHITE)
