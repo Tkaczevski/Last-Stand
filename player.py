@@ -234,7 +234,7 @@ class EnemyGenerator:
     def __init__(self, gdata):
         rnd.seed()
         self.gdata = gdata
-        self.timer = 1900
+        self.timer = 1700
         self.spawn_count = 0
         self.spawn_limit = 10
         self.acc = 0
